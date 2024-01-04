@@ -1,0 +1,39 @@
+<html>
+  <body>
+    <div id="app"></div>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/jsx">
+      const app = document.getElementById('app');
+
+      function getData() {
+        alert('Hello World');
+      }
+
+      function Header({title}) {
+        return <h1>{title}</h1>;
+      }
+
+      function ContentBlog() {
+        const hobbies = ['Programmer', 'Gamer']
+        
+        return (
+            <div>
+                <p>Blog content goes here. I am a;</p>
+                <ul>
+                    {hobbies.map((hobby) => (<li key={hobby}>{hobby}</li>))}
+                </ul>
+                <button onClick={getData}>Click Me</button>
+            </div>
+        );
+      }
+
+      function HomePage() {
+        return <div><Header title="My Blog" /><Header title="Kenangan di UniMAP" /><ContentBlog /></div>;
+      }
+
+      ReactDOM.render(<HomePage />, app);
+    </script>
+  </body>
+</html>
