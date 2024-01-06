@@ -29,8 +29,29 @@
         );
       }
 
+      function PropsValue({nama}) {
+        return (
+          <div>
+            <p>My name is {nama}</p>
+          </div>)
+      }
+
+      function InputField() {
+        const [name, setName] = React.useState('')
+
+        function changeData(event) {
+          setName(event.target.value)
+        }
+        
+        return <><input onChange={changeData} type="text" placeholder="Enter your name" /><br /><PropsValue nama={name} /></>;
+      }
+
+      function changeData() {
+        console.log('Data changed');
+      }
+
       function HomePage() {
-        return <div><Header title="My Blog" /><Header title="Kenangan di UniMAP" /><ContentBlog /></div>;
+        return <div><Header title="My Blog" /><Header title="Kenangan di UniMAP" /><ContentBlog /><br /><InputField /></div>;
       }
 
       ReactDOM.render(<HomePage />, app);
