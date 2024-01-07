@@ -7,7 +7,8 @@
     <script type="text/jsx">
       const app = document.getElementById('app');
 
-      function getData() {
+      function getData(e) {
+        e.stopPropagation()
         alert('Hello World');
       }
 
@@ -46,12 +47,10 @@
         return <><input onChange={changeData} type="text" placeholder="Enter your name" /><br /><PropsValue nama={name} /></>;
       }
 
-      function changeData() {
-        console.log('Data changed');
-      }
-
       function HomePage() {
-        return <div><Header title="My Blog" /><Header title="Kenangan di UniMAP" /><ContentBlog /><br /><InputField /></div>;
+        return <div onClick={e => {
+          alert('hehe')  
+        }}><Header title="My Blog" /><Header title="Kenangan di UniMAP" /><ContentBlog /><br /><InputField /><br /><InputField /></div>;
       }
 
       ReactDOM.render(<HomePage />, app);
